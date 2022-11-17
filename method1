@@ -1,0 +1,86 @@
+package prac;
+import java.util.*;
+public class gnumber {
+    
+    public static void main(String[] args){
+
+        int num1, num2, num3;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("\nInput first number: ");
+        num1 = sc.nextInt();
+        System.out.print("Input second number: ");
+        num2 = sc.nextInt();
+        System.out.print("Input third number: ");
+        num3 = sc.nextInt();
+
+        if(num1 > num2){
+            System.out.println("The greatest number is: " + num1+"\n");
+        }else if(num2 > num3){
+            System.out.println("The greatest number is: " + num2+"\n");
+        }else if(num3 > num1){
+            System.out.println("The greatest number is: " + num3+"\n");
+        }   
+        HeadTails();
+        dollar();
+    }
+    public static void HeadTails(){
+
+        Scanner hd = new Scanner(System.in);
+
+        int nHeads=0;
+        int nTails=0;
+        int x;
+
+        for(x=0;x<8;x++){
+        System.out.print("Toss "+(x+1)+": ");
+        char input = hd.next().charAt(0);
+
+        if(input=='h')
+            nHeads++;
+        if(input=='t')
+            nTails++;
+        }
+
+        System.out.println("Number of Heads: " + nHeads);
+        System.out.println("Number of Heads: " + nTails);
+        System.out.println("The percentage of heads: "+(float)nHeads/(nHeads+nTails)*100);
+        System.out.println("The percentage of tails: "+(float)nTails/(nHeads+nTails)*100);
+        
+    }
+
+    public static void dollar(){
+        for(int x=0;x<1;){
+        try{
+        Scanner mn = new Scanner(System.in);
+
+        System.out.print("\nEnter a Dollar Amount: ");
+        int dllr = mn.nextInt();
+
+        if(dllr<10){
+            int charge = 1;
+            System.out.println("Charge $:"+charge);
+        }else if(dllr>10 || dllr<100){
+            double amount = (dllr * 0.10);
+            System.out.println("Charge $:"+amount);
+        }else if(dllr>100 || dllr<1000){
+            double amount = (5 + (dllr*0.5));
+            System.out.println("Charge $:"+amount);
+        }else if(dllr>1000){
+            double value = (40 +(dllr*0.1));
+            System.out.println("Charge $:"+value);
+        }
+    }catch(InputMismatchException e){
+        System.out.println("Invalid input please try again.");}
+
+    Scanner yn = new Scanner(System.in);
+    System.out.println("Do you want to try again? (yes/no): ");
+    String input = yn.nextLine();
+
+    if(input.equalsIgnoreCase("yes")){
+        x=0;
+    }else if(input.equalsIgnoreCase("no")){
+        x=1;
+    }
+        }     
+    }
+}
